@@ -68,7 +68,7 @@ Participants had to:
 
 ## Example Packet
 
-<img src="screenshots/CTF.png" width="700">
+<img src="screenshots/CTF.png" width="1500">
 
 The flag was embedded inside a custom HTTP header.
 
