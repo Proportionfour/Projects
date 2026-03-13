@@ -74,12 +74,16 @@ Some interesting patterns observed:
 
 - Attack traffic was heavily concentrated from a few geographic regions such as the U.S, China, India, and Australia
 
+## CVE Data
 
 CVE-2024-6387 CVE-2024:
-This CVE was used to exploit openSSH by utilizing a race condition which can lead sshd to handle signals incorrectly leading to a RCE vulnerability. Common ways to patch this vulnerability is to modify the sshd configuration file as a root user in order to change the Login Grace Time parameter to 0. This disables the SSHD server's ability to drop connections due to an authentication timeout. It is recommended to utilize other utilities such as fail2ban in order to further manage ssh connections. 
+
+This CVE was used to exploit openSSH by utilizing a race condition which can lead sshd to handle signals incorrectly leading to a RCE vulnerability. Common ways to patch this vulnerability is to modify the sshd configuration file as a root user in order to change the Login Grace Time parameter to 0. This disables the SSHD server's ability to drop connections due to an authentication timeout. It is recommended to utilize other utilities such as fail2ban in order to further manage ssh connections.
 
 CVE-2002-0013:
-CVE-2002-0013 is a vulnerability in SNMPv1 request handling that can allow attackers to implement a DDOS attack or gain [privileges via GetRequest, GetNextRequest, and SetRequest messages. It is strongly recommended to upgrade the protocol to a newer version that patches this known vulnerability in order to mitigate a new attack vector.
+
+CVE-2002-0013 is a vulnerability in SNMPv1 request handling that can allow attackers to implement a DDOS attack or gain privileges via GetRequest, GetNextRequest, and SetRequest messages. It is strongly recommended to upgrade the protocol to a newer version that patches this known vulnerability in order to mitigate a new attack vector.
+
 ---
 
 
