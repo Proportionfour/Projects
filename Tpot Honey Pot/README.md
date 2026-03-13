@@ -73,7 +73,7 @@ Some interesting patterns observed:
   - (blank)
 
 - Attack traffic was heavily concentrated from a few geographic regions such as the U.S, China, India, and Australia
-![Dashboard](./Screenshots/Kibana_Login_Attempts.png)
+
 
 CVE-2024-6387 CVE-2024:
 This CVE was used to exploit openSSH by utilizing a race condition which can lead sshd to handle signals incorrectly leading to a RCE vulnerability. Common ways to patch this vulnerability is to modify the sshd configuration file as a root user in order to change the Login Grace Time parameter to 0. This disables the SSHD server's ability to drop connections due to an authentication timeout. It is recommended to utilize other utilities such as fail2ban in order to further manage ssh connections. 
