@@ -50,7 +50,7 @@ The honeypot captured:
 
 ## Kibana Dashboard
 
-![Dashboard](/Screenshots/Kibana_Dashboard.png)
+![Dashboard](Tpot%20Honey%20Pot/Screenshots/Kibana_Dashboard.png)
 
 The dashboard visualizes attack activity including:
 
