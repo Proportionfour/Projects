@@ -37,6 +37,7 @@ Once booted, verify the second interface is recognized:
 ```bash
 ip a
 ```
+![Fresh](./Pictures/Two-Interfaces.png)
 
 You'll notice the second interface has no IP address assigned yet — that's expected. We'll handle that in the next step.
 
@@ -52,7 +53,7 @@ cd /etc/netplan/
 
 Open your config file (e.g., `01-router.yaml`) — create it if it doesn't exist — and add your static IP configuration for the LAN interface.
 
-> *(Insert screenshot of netplan config here)*
+![Config](./Pictures/Router-config.png)
 
 Apply the configuration:
 
@@ -61,11 +62,11 @@ sudo netplan apply
 ```
 
 **Heads up:** You may see warnings about the config file having overly permissive file permissions. Tighten them up by restricting access to the root user only:
-
+![Apply](./Pictures/netplan-apply.png)
 ```bash
 sudo chmod 600 /etc/netplan/01-router.yaml
 ```
-
+![App](./Pictures/Fixed-Permissions.png)
 ---
 
 ## Step 3 — Enable IP Forwarding
@@ -138,7 +139,7 @@ sudo netfilter-persistent save
 
 On your client VM, open its Netplan config and add the appropriate network settings pointing to your router as the gateway.
 
-> *(Insert screenshot of client netplan config here)*
+![Client](./Pictures/Client-Config.png)
 
 Apply the configuration:
 
@@ -161,7 +162,7 @@ Then test internet connectivity with a ping:
 ```bash
 ping 8.8.8.8
 ```
-
+![Ping](./Pictures/Client-ping.png)
 A successful ping means your Linux router is up and running. 
 
 ---
