@@ -162,7 +162,8 @@ Then test internet connectivity with a ping:
 ```bash
 ping 8.8.8.8
 ```
-![Ping](./Pictures/Client-ping.png)
+![Ping](./Pictures/Final-Ping.png)
+
 A successful ping means your Linux router is up and running. 
 
 ---
