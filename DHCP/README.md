@@ -19,6 +19,7 @@ sudo systemctl status dnsmasq
 
 You'll likely see it in a **failed** state at this point — that's expected. dnsmasq doesn't know which interfaces to bind to yet, so it stumbles on startup. We'll fix that in the configuration.
 
+![fail](./Pictures/Status-check.png)
 ---
 
 ## Step 2 — Configure dnsmasq
@@ -33,7 +34,7 @@ sudo nano /etc/dnsmasq.conf
 
 Add the following configuration:
 
-> *(Insert screenshot of config file here)*
+![Conf](./Pictures/DHCP-conf.png)
 
 ### Configuration Breakdown
 
@@ -108,6 +109,7 @@ sudo systemctl status dnsmasq
 
 This time the status should show **active (running)**.
 
+![final](./Pictures/Final-check.png)
 ---
 
 ## Step 5 — Update the Client VM
@@ -137,6 +139,7 @@ Check that the client received an IP from the DHCP pool (`192.168.1.100–200`):
 ```bash
 ip a
 ```
+![ip](./Pictures/Ip-check.png)
 
 Then confirm internet connectivity:
 
