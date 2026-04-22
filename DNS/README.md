@@ -25,26 +25,7 @@ The global settings for bind9 live in `/etc/bind/named.conf.options`. Open it an
 sudo nano /etc/bind/named.conf.options
 ```
 
-```conf
-options {
-    directory "/var/cache/bind";
-
-    # Forward unknown queries to Cloudflare and Google's public DNS
-    forwarders {
-        1.1.1.1;
-        8.8.8.8;
-    };
-
-    # Only allow queries from the local machine and LAN
-    allow-query     { localhost; 192.168.56.0/24; };
-
-    # Only allow recursion from the local machine and LAN
-    allow-recursion { localhost; 192.168.56.0/24; };
-
-    dnssec-validation auto;
-    listen-on { 192.168.56.1; };
-};
-```
+![conf](./Pictures/Global-Config.png)
 
 ### Breaking It Down
 
@@ -72,21 +53,7 @@ We'll be creating two zones:
 sudo nano /etc/bind/named.conf.local
 ```
 
-```conf
-# Forward Zone
-zone "lab-network" {
-    type master;
-    file "/etc/bind/zones/db.lab-network";
-};
-
-# Reverse Zone
-zone "56.168.192.in-addr.arpa" {
-    type master;
-    file "/etc/bind/zones/db.192.168.56";
-};
-```
-
-> *(Insert screenshot here)*
+![declare](./Pictures/Declare-Zones.png
 
 ### Breaking It Down
 
@@ -112,24 +79,7 @@ sudo mkdir /etc/bind/zones
 sudo nano /etc/bind/zones/db.lab-network
 ```
 
-```dns
-$TTL    604800
-@   IN  SOA     router.lab-network. admin.lab-network. (
-                    2         ; Serial
-               604800         ; Refresh
-                86400         ; Retry
-              2419200         ; Expire
-               604800 )       ; Negative Cache TTL
-
-; Nameserver record
-@       IN  NS      router.lab-network.
-
-; A Records
-router  IN  A       192.168.56.1
-client  IN  A       192.168.56.100
-```
-
-> *(Insert screenshot here)*
+![forward](./Pictures/Forward-zone.png)
 
 ### Breaking It Down
 
@@ -159,24 +109,7 @@ client  IN  A       192.168.56.100
 sudo nano /etc/bind/zones/db.192.168.56
 ```
 
-```dns
-$TTL    604800
-@   IN  SOA     router.lab-network. admin.lab-network. (
-                    2         ; Serial
-               604800         ; Refresh
-                86400         ; Retry
-              2419200         ; Expire
-               604800 )       ; Negative Cache TTL
-
-; Nameserver record
-@       IN  NS      router.lab-network.
-
-; PTR Records
-1       IN  PTR     router.lab-network.
-100     IN  PTR     client.lab-network.
-```
-
-> *(Insert screenshot here)*
+![reverse](./Pictures/Reverse-zone.png)
 
 This file is nearly identical to the forward zone file with one key difference — instead of `A` records we're using **`PTR` records**. PTR records are essentially the reverse of A records, mapping an IP address back to a hostname.
 
@@ -203,7 +136,7 @@ sudo named-checkzone 56.168.192.in-addr.arpa /etc/bind/zones/db.192.168.56
 
 Both should return `OK`.
 
-> *(Insert screenshot here)*
+![CHECK](./Pictures/check-conf.png)
 
 ---
 
@@ -249,7 +182,7 @@ dig @192.168.56.1 google.com
 
 In the output look for `status: NOERROR` in the header and an `ANSWER SECTION` containing the correct record. All three queries resolving successfully means the DNS server is fully operational.
 
-> *(Insert screenshot here)*
+![test](./Pictures/DNS-test.png)
 
 ---
 
