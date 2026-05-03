@@ -6,7 +6,7 @@ A walkthrough of how I configured an Ubuntu Server VM to function as a router wi
 
 ## Overview
 
-This project covers the full process of turning a Linux server into a functional router — configuring a second network interface, enabling IP forwarding, setting up NAT, and validating connectivity through a client VM.
+This project covers the full process of turning a Linux server into a functional router, configuring a second network interface, enabling IP forwarding, setting up NAT, and validating connectivity through a client VM.
 
 > **Note:** Some steps in this guide are specific to a virtual environment (VirtualBox). If you're working on physical hardware, skip the VM-specific configuration sections.
 
@@ -27,7 +27,7 @@ A router needs at least two network interfaces: one facing the WAN (internet) an
 
 1. **Power off** your VM.
 2. Open your hypervisor's **Network Settings**.
-3. You'll see **Adapter 1** already configured for internet access — leave it as-is.
+3. You'll see **Adapter 1** already configured for internet access, leave it as-is.
 4. Navigate to **Adapter 2**, check **Enable Network Adapter**, and set *Attached to* → **Internal Network**.
 5. Give the internal network a name (e.g., `lab-network`).
 6. Click **OK** and restart the VM.
@@ -39,7 +39,7 @@ ip a
 ```
 ![Fresh](./Pictures/Two-Interfaces.png)
 
-You'll notice the second interface has no IP address assigned yet — that's expected. We'll handle that in the next step.
+You'll notice the second interface has no IP address assigned yet, that's expected. We'll handle that in the next step.
 
 ---
 
@@ -51,7 +51,7 @@ To give the LAN interface a static IP, navigate to the Netplan configuration dir
 cd /etc/netplan/
 ```
 
-Open your config file (e.g., `01-router.yaml`) — create it if it doesn't exist — and add your static IP configuration for the LAN interface.
+Open your config file (e.g., `01-router.yaml`) create it if it doesn't exist, and add your static IP configuration for the LAN interface.
 
 ![Config](./Pictures/Router-config.png)
 
@@ -170,4 +170,4 @@ A successful ping means your Linux router is up and running.
 
 ## What I Learned
 
-This project pushed me to get comfortable making network configuration changes purely through the CLI — something I used to avoid by relying on a GUI. Digging into Netplan, IP forwarding, and IPtables gave me a much better understanding of how routing and NAT actually work under the hood rather than just abstracting it away through a graphical interface.
+This project pushed me to get comfortable making network configuration changes purely through the CLI, something I used to avoid by relying on a GUI. Digging into Netplan, IP forwarding, and IPtables gave me a much better understanding of how routing and NAT actually work under the hood rather than just abstracting it away through a graphical interface.
