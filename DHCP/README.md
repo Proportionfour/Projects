@@ -54,7 +54,7 @@ The heart of the DHCP config. Breaking it down:
 | `255.255.255.0` | Subnet mask handed to clients (`/24` network) |
 | `12h` | Lease time — clients must renew after 12 hours |
 
-The router's own IP (`192.168.1.1`) sits outside this range intentionally — the DHCP server should never hand out its own IP.
+The router's own IP (`192.168.1.1`) sits outside this range intentionally, the DHCP server should never hand out its own IP.
 
 **`dhcp-option=3,192.168.1.1`**
 DHCP Option 3 sets the **default gateway**. This tells clients to route all non-LAN traffic through `192.168.1.1`, meaning client VMs no longer need a manually configured gateway.
