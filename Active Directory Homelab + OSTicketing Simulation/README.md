@@ -1,5 +1,7 @@
 # Active Directory Home Lab
 
+![conf](./Screenshots/Start.png)
+
 Created a home lab to simulate a real enterprise Windows 
 network. This project demonstrates hands-on experience 
 with Active Directory, Group Policy, and common helpdesk 
