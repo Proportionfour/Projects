@@ -4,15 +4,19 @@ Created a home lab to simulate a real enterprise Windows
 network. This project demonstrates hands-on experience 
 with Active Directory, Group Policy, and simulated enterprise ticketing systems.
 
-![conf](./Screenshots/Start.png)
+<img src="./Screenshots/Start.png" width="600" height="400">
 
 ## Environment
+<img src="./Screenshots/Enter.png" width="600">
+
 - Windows Server 2022 Domain Controller (DC01)
 - Windows 10 Pro Client (joined to domain)
 - Ubuntu Server 22.04 (osTicket)
 - Hosted on VirtualBox
 
 ## Skills Demonstrated
+<img src="./Screenshots/Powershell-user.png" width="600" height="400">
+
 - Promoted server to Domain Controller
 - Designed OU structure for HR, IT, and Finance departments
 - Created and managed user accounts via GUI and PowerShell
@@ -24,17 +28,22 @@ with Active Directory, Group Policy, and simulated enterprise ticketing systems.
 - Configured osTicket to simulate enterprise IT support ticketing
 
 ## Network Configuration
+<img src="./Screenshots/Static-ip.png" width="600" height="400">
+
 - Domain: homelab.local
 - Static IP assigned to DC
 - DNS configured to point to Domain Controller
 
 ## Domain Configuration
+<img src="./Screenshots/Users.png" width="600" height="400">
+
 - Created Organizational Units for HR, Finance, and IT departments
 - Created and managed user accounts using Windows PowerShell
 - Configured Group Policy Objects for each department
 - Joined Windows 10 Pro client to domain
 
 ## Group Policy Objects
+<img src="./Screenshots/Restricted.png" width="600" height="400">
 
 ### HR Policy
 - Enforced 15 minute screen lock timeout
@@ -54,8 +63,11 @@ with Active Directory, Group Policy, and simulated enterprise ticketing systems.
 - Granted access to administrative tools
 - Enabled PowerShell script execution
 
+<img src="./Screenshots/Disabled-CMD.png" width="600" height="400">
+
 ## Challenges and Solutions
 
+<img src="./Screenshots/Activated-Fix.png" width="600" height="400">
 **Issue:** Windows 10 Home does not support domain joining
 **Solution:** Used Microsoft's public upgrade key to upgrade 
 to Windows 10 Pro in place via Settings → Update & Security 
@@ -71,3 +83,6 @@ in VirtualBox ensuring they shared the same subnet.
 **Solution:** Discovered the Desktop Experience option must 
 be selected during installation. Reinstalled selecting 
 Windows Server 2022 Standard Evaluation (Desktop Experience).
+
+## Setting up osTicket
+
