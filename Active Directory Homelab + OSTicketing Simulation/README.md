@@ -1,11 +1,10 @@
 # Active Directory Home Lab
 
-![conf](./Screenshots/Start.png)
-
 Created a home lab to simulate a real enterprise Windows 
 network. This project demonstrates hands-on experience 
-with Active Directory, Group Policy, and common helpdesk 
-workflows.
+with Active Directory, Group Policy, and simulated enterprise ticketing systems.
+
+![conf](./Screenshots/Start.png)
 
 ## Environment
 - Windows Server 2022 Domain Controller (DC01)
