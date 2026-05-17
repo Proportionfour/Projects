@@ -84,5 +84,25 @@ in VirtualBox ensuring they shared the same subnet.
 be selected during installation. Reinstalled selecting 
 Windows Server 2022 Standard Evaluation (Desktop Experience).
 
-## Setting up osTicket
+## osTicket: Enterpsie Ticketing Software
+
+Deployed osTicket on an Ubuntu Server 22.04 VM to simulate 
+an enterprise IT help desk environment. This allows for 
+practicing real helpdesk workflows including ticket creation, 
+assignment, and resolution.
+
+### Environment
+- Ubuntu Server 22.04
+- Apache2 Web Server
+- MySQL Database
+- PHP
+
+### Configuration
+- Deployed LAMP stack (Linux, Apache, MySQL, PHP) on 
+  Ubuntu Server 22.04
+- Created a dedicated MySQL database and user for osTicket
+- Configured Apache to serve the osTicket web application
+- Set up admin and client portals for ticket management
+
+<img src="./Screenshots/osTicket.png" width="600" height="400">
 
