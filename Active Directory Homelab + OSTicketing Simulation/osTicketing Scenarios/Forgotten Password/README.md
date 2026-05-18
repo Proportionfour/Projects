@@ -15,7 +15,9 @@ describing his issue. He provides his name, email, and a brief
 description of the problem so the helpdesk can identify and 
 resolve the issue quickly.
 
-*(insert pics)*
+<img src="./Pictures/open.png" width="600" height="400">
+
+<img src="./Pictures/ticket.png" width="600" height="400">
 
 ---
 
@@ -25,7 +27,13 @@ the dashboard. We assign the ticket to ourselves and send Billy an
 initial response letting him know we have received his request and 
 are actively working on a resolution.
 
-*(insert pics)*
+<img src="./Pictures/Dash.png" width="600" height="400">
+
+<img src="./Pictures/tix.png" width="600" height="400">
+
+<img src="./Pictures/claim.png" width="600" height="400">
+
+<img src="./Pictures/talk.png" width="600" height="400">
 
 ---
 
@@ -37,7 +45,7 @@ Billy Joel's user account, right-click it, and select
 **"User must change password at next logon"** to ensure Billy 
 creates his own permanent password upon logging back in.
 
-*(insert pics)*
+<img src="./Pictures/reset.png" width="600" height="400">
 
 ---
 
@@ -47,7 +55,9 @@ his temporary password and a reminder of the company password
 policy. Once communicated, we close the ticket and leave a short 
 internal note documenting what was done and how it was resolved.
 
-*(insert pics)*
+<img src="./Pictures/talk2.png" width="600" height="400">
+
+<img src="./Pictures/close.png" width="600" height="400">
 
 ---
 
@@ -57,7 +67,7 @@ To confirm everything is working correctly, we log into the Windows
 prompted to set a new permanent password on first login — 
 confirming the ticket has been fully resolved.
 
-*(insert pics)*
+<img src="./Pictures/verify.png" width="600" height="400">
 
 ---
 
