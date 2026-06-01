@@ -1,0 +1,1 @@
+Ansible is an automation tool that utilizes "Playbooks" in order to define the automated actions or commands. This project will hostt my Ansible playbooks that I will be creating to automate tasks in my homelab. 
