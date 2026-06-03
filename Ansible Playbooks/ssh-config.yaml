@@ -1,0 +1,39 @@
+---
+# This script is used to configure key based authentication on hosts. The next script (secure-ssh.yaml) will be used to disable all ssh password authentication 
+# after we've verified that our key based auth script has worked.
+- name: Configuring SSH key authentication on hosts
+  hosts: all
+  become: yes
+
+  vars:
+    ssh_public_key: "{{ lookup('file', '~/.ssh/id_ed25519.pub') }}"
+    ansible_user_name: "{{ ansible_user | default('ubuntu') }}"
+
+  tasks:
+    - name: Checks for .ssh directory
+      ansible.builtin.file:
+        path: "/home/{{ ansible_user_name }}/.ssh"
+        state: directory
+        owner: "{{ ansible_user_name }}"
+        group: "{{ ansible_user_name }}"
+        mode: "0700"
+
+    - name: Add public key to auth key
+      ansible.posix.authorized_key:
+        user: "{{ ansible_user_name }}"
+        state: present
+        key: "{{ ssh_public_key }}"
+
+    - name: Enable public key auth in sshd_config
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: "^#?PubkeyAuthentication"
+        line: "PubkeyAuthentication yes"
+        validate: "/usr/sbin/sshd -t -f %s"
+      notify: Restart SSH
+  handlers:
+    - name: Restart SSH
+      ansible.builtin.service:
+        name: "{{ 'ssh' if ansible_os_family == 'Debian' else 'sshd'}}"
+        state: restarted
+---
